@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
+    'medhistory',
     'rest_framework',
     'material',
 ]
@@ -81,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'health',
-        'PASSWORD':'sud96',
+        'PASSWORD':'connect',
         'PORT':3306,
         'HOST':'localhost',
         'USER':'root'
