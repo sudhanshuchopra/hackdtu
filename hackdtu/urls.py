@@ -20,4 +20,5 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^history/',include('medhistory.api.urls')),
+    url(r'^api-auth/',include('accounts.api.urls')),
 ]

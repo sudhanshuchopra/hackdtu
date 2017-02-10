@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'hackdtu.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'health',
+        'NAME': 'health1',
         'PASSWORD':'connect',
         'PORT':3306,
         'HOST':'localhost',
