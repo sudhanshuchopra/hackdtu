@@ -1,6 +1,6 @@
 from rest_framework import viewsets,mixins
 from medhistory.models import History
-from .serializers import HistorySerializer,HistoryUploadSerializer
+from .serializers import HistorySerializer,HistoryUploadSerializer,DiseaseSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import BasicAuthentication
@@ -23,3 +23,11 @@ class HistoryList(APIView):
         historyobjs = History.objects.filter(user=request.user)
         serializer = HistorySerializer(historyobjs, many=True)
         return Response(serializer.data)
+
+class UserDiseaseList(APIView):
+    def get(self, request,adhaar_card=None,format=None):
+        historyobjs = History.objects.filter(user=request.user)
+        serializer = DiseaseSerializer(historyobjs, many=True)
+        return Response(serializer.data)
+
+

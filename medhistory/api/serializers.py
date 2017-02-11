@@ -18,3 +18,10 @@ class HistoryUploadSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = History
 		fields = ('history_pic', 'user', 'time', 'image_title')
+
+
+class DiseaseSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = History
+		fields = ['Disease','time']
+		order_by = ['-pk']
