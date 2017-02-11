@@ -1,6 +1,6 @@
 from rest_framework import viewsets,mixins
 from medhistory.models import History
-from .serializers import HistorySerializer,CsrfExemptSessionAuthentication,HistoryUploadSerializer
+from .serializers import HistorySerializer,HistoryUploadSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.authentication import BasicAuthentication
@@ -10,11 +10,12 @@ class HistoryViewSet(mixins.CreateModelMixin,
     
     queryset = History.objects.all()
     serializer_class = HistoryUploadSerializer
-    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
+    #authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,
     #                      IsOwnerOrReadOnly,)
     @csrf_exempt
     def perform_create(self,serializer):
+        #print("$$$$$$$$$$$",se.request.user)
         serializer.save(user=self.request.user)
 
 class HistoryList(APIView):
