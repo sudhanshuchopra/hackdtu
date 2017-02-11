@@ -9,6 +9,9 @@ class CsrfExemptSessionAuthentication(BasicAuthentication):
 
 class UserLoginSerializer(serializers.ModelSerializer):
     adhaar_card = serializers.IntegerField(max_value=999999999999, min_value=1)
+    password=password = serializers.CharField(
+    style={'input_type': 'password'}
+)
     class Meta:
         model = MyUser
         fields = ('adhaar_card', 'password')
@@ -34,6 +37,9 @@ class UserLoginSerializer(serializers.ModelSerializer):
     			raise ValidationError('User/Password doesnt Match' )
     	return data
 
-
+class UserDetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=MyUser
+        fields=("adhaar_card","first_name","last_name","blood_group","phone")
 		
 		
