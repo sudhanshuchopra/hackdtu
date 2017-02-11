@@ -25,3 +25,9 @@ class DiseaseSerializer(serializers.ModelSerializer):
 		model = History
 		fields = ['Disease','time']
 		order_by = ['-pk']
+
+class HistoryAnotherSerializer(serializers.ModelSerializer):
+	class Meta:
+		model=History
+		fields=['blood_sugar_level','time']
+		order_by=['-time']
