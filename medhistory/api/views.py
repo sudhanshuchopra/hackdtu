@@ -45,3 +45,5 @@ class BPHistory(APIView):
         k=History.objects.filter(user=my_user)
         serializer = HistoryAnotherSerializer(k,many=True)
         return Response(serializer.data)
+
+
