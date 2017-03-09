@@ -7,6 +7,6 @@
 <br/>
 <a href='http://sahil99.pythonanywhere.com/history/history/'>Create new Medical Record or upload prescription API</a>
 <br/>
-<a href='http://sahil99.pythonanywhere.com/history/history_records/'>Medical Records Of Patient API (Availabe after strict authentication</a>
+<a href='http://sahil99.pythonanywhere.com/history/history_records/'>Medical Records Of Patient API (Availabe after strict authentication)</a>
 <br/>
 <a href='http://sahil99.pythonanywhere.com/api-auth/login/'> Proper Authentication API </a>
