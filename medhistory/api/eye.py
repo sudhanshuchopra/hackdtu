@@ -105,9 +105,9 @@ def check_cataract(img_str):
 			if y!=0:
 				deltaSum = (y - mean ) ** 2
 	std = (float(deltaSum)/count)**0.5
-	print mean,
-	print U,
-	print std
+	print(mean,)
+	print (U,)
+	print(std)
 	if U > 0.17:
 		points += 1
 	elif U < 0.09:
