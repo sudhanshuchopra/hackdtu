@@ -7,6 +7,8 @@ from rest_framework.authentication import BasicAuthentication
 from django.views.decorators.csrf import csrf_exempt
 from accounts.models import MyUser
 from django.http import Http404
+from rest_framework.decorators import api_view
+from .eye import *
 class HistoryViewSet(mixins.CreateModelMixin,
                                 viewsets.GenericViewSet):
     
@@ -46,4 +48,10 @@ class BPHistory(APIView):
         serializer = HistoryAnotherSerializer(k,many=True)
         return Response(serializer.data)
 
+
+@api_view(['GET','POST'])
+def examine(request,image_str):
+    image_str=str(image_str)
+    points=check_cataract(image_str)
+    return Response({'points':points})
 

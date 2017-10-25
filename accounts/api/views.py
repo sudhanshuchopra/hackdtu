@@ -45,5 +45,6 @@ class UserDetail(APIView):
         my_user = self.get_object(adhaar_card)
         serializer = UserDetSerializer(my_user)
         return Response(serializer.data)
+        
 
 
