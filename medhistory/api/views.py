@@ -9,6 +9,9 @@ from accounts.models import MyUser
 from django.http import Http404
 from rest_framework.decorators import api_view
 from .eye import *
+import io
+import base64
+from .skin import *
 class HistoryViewSet(mixins.CreateModelMixin,
                                 viewsets.GenericViewSet):
     
@@ -51,7 +54,21 @@ class BPHistory(APIView):
 
 @api_view(['GET','POST'])
 def examine(request,image_str):
-    image_str=str(image_str)
+    #image_string = io.BytesIO(base64.b64decode(image_str))
+    #print(image_str)
+    #image=base64.decodestring(image_str)
+    #image_64_encode = base64.encodestring(image)
     points=check_cataract(image_str)
     return Response({'points':points})
+
+@api_view(['GET','POST'])
+def examine_skin(request,image_str):
+    #image_string = io.BytesIO(base64.b64decode(image_str))
+    #print(image_str)
+    #image=base64.decodestring(image_str)
+    #image_64_encode = base64.encodestring(image)
+    points=check_cancer(image_str)
+    return Response({'points':points})
+
+
 
